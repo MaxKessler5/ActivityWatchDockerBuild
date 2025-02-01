@@ -1,3 +1,7 @@
+# Disclaimer: This doesn't work yet
+As of 1/31/25 I can only build the first stage so far,
+not actually sure if this is possible or not
+
 # ActivityWatch Docker Setup
 
 This repository contains the Docker setup for building and running ActivityWatch. The Dockerfile is divided into multiple stages to handle dependencies, building, and running the application.
