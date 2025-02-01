@@ -27,8 +27,8 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
 # Add Rust to PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Clone the ActivityWatch repository and its submodules
-RUN git clone --recursive https://github.com/ActivityWatch/activitywatch.git /activitywatch
+# Clone my fork of the ActivityWatch repository and its submodules
+RUN git clone --recursive https://github.com/MaxKessler5/activitywatch.git /activitywatch
 
 # Set working directory
 WORKDIR /activitywatch
@@ -59,6 +59,8 @@ WORKDIR /activitywatch
 # CD into aw-qt and run poetry lock
 WORKDIR /activitywatch/aw-qt
 RUN poetry lock
+
+WORKDIR /activitywatch
 
 # Install project dependencies and build the project
 RUN make build > build.log || { echo 'Build failed, check build.log for details'; cat build.log; exit 1; }
