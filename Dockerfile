@@ -38,6 +38,9 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3.9 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
+# Install Poetry into the venv
+RUN pip install poetry
+
 # Copy the custom test script
 COPY test_commands.py /activitywatch/test_commands.py
 
@@ -53,11 +56,8 @@ FROM dependencies AS builder
 # Set working directory
 WORKDIR /activitywatch
 
-# Install Poetry
-RUN pip3 install poetry
-
 # Install project dependencies and build the project
-RUN poetry install && make build > build.log
+RUN make build > build.log
 
 # Set the entry point to display the build log
 ENTRYPOINT ["cat", "build.log"]

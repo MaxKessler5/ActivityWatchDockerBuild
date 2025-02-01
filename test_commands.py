@@ -7,7 +7,8 @@ commands = [
     "node --version",
     "npm --version",
     "rustc --version",
-    "cargo --version"
+    "cargo --version",
+    "make --version"
 ]
 
 with open("dependency_check.log", "w") as log_file:
