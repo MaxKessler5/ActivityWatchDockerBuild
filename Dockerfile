@@ -56,10 +56,14 @@ FROM dependencies AS builder
 # Set working directory
 WORKDIR /activitywatch
 
-# Install project dependencies and build the project
-RUN make build > build.log
+# CD into aw-qt and run poetry lock
+WORKDIR /activitywatch/aw-qt
+RUN poetry lock
 
+# Install project dependencies and build the project
+RUN make build > build.log || { echo 'Build failed, check build.log for details'; cat build.log; exit 1; }
 # Set the entry point to display the build log
+
 ENTRYPOINT ["cat", "build.log"]
 
 # Stage 3: Final Image

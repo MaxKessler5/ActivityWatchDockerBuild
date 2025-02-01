@@ -1,10 +1,15 @@
-# Disclaimer: This doesn't work yet
-As of 1/31/25 I can only build the first stage so far,
-not actually sure if this is possible or not
+# Goal: Reproduce problems building activity watch from source 
+By building ActivityWatch in a docker container, I can ensure that the environment is consistent and that I have all the necessary dependencies installed. 
+Then I can document the process and any errors I encounter, along with their solutions, in this document.
 
-# ActivityWatch Docker Setup
+# Errors and attempted solutions
 
-This repository contains the Docker setup for building and running ActivityWatch. The Dockerfile is divided into multiple stages to handle dependencies, building, and running the application.
+* "pyproject.toml changed significantly since poetry.lock was last generated. Run `poetry lock` to fix the lock file."
+    I try exactly what the error message says, seems to work
+
+* 
+
+
 
 ## Stages
 
@@ -21,7 +26,7 @@ docker run activitywatch-deps
 ```
 To run up to the build stage and see the output from Make build:
 ```sh
-docker build --target build -t activitywatch-build .
+docker build --target builder -t activitywatch-build .
 docker run activitywatch-build
 ```
 To build the final image which only contains the built application:
