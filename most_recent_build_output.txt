@@ -1,0 +1,35 @@
+312.1     | copying evdev/input.c -> build/lib.linux-x86_64-cpython-39/evdev
+312.1     | copying evdev/uinput.c -> build/lib.linux-x86_64-cpython-39/evdev
+312.1     | running build_ext
+312.1     | running build_ecodes
+312.1     | writing /tmp/tmpaj5f0kt1/evdev-1.7.1/evdev/ecodes.c (using /usr/include/linux/input.h /usr/include/linux/input-event-codes.h /usr/include/linux/uinput.h)
+312.1     | building 'evdev._input' extension
+312.1     | creating build/temp.linux-x86_64-cpython-39/evdev
+312.1     | x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -fPIC -I/tmp/tmp7x8_38m8/.venv/include -I/usr/include/python3.9 -c evdev/input.c -o build/temp.linux-x86_64-cpython-39/evdev/input.o -std=c99 -Wno-error=declaration-after-statement
+312.1     | evdev/input.c:10:10: fatal error: Python.h: No such file or directory
+312.1     |    10 | #include <Python.h>
+312.1     |       |          ^~~~~~~~~~
+312.1     | compilation terminated.
+312.1     | error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+312.1 
+312.1 Note: This error originates from the build backend, and is likely not a problem with poetry but one of the following issues with evdev (1.7.1)
+312.1 
+312.1   - not supporting PEP 517 builds
+312.1   - not specifying PEP 517 build requirements correctly
+312.1   - the build requirements are incompatible with your operating system or Python version
+312.1   - the build requirements are missing system dependencies (eg: compilers, libraries, headers).
+312.1 
+312.1 You can verify this by running pip wheel --no-cache-dir --use-pep517 "evdev (==1.7.1)".
+312.1 
+312.1 make[1]: Leaving directory '/activitywatch/aw-watcher-afk'
+312.1 Error in aw-watcher-afk build
+------
+Dockerfile:66
+--------------------
+  64 |     
+  65 |     # Install project dependencies and build the project
+  66 | >>> RUN make build > build.log || { echo 'Build failed, check build.log for details'; cat build.log; exit 1; }
+  67 |     # Set the entry point to display the build log
+  68 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c make build > build.log || { echo 'Build failed, check build.log for details'; cat build.log; exit 1; }" did not complete successfully: exit code: 1
