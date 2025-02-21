@@ -39,7 +39,7 @@ docker run -p 5600:5600 activitywatch
     21.33   - pyinstaller requires Python <3.13,>=3.8, so it will not be satisfied for Python >=3.13,<4.0" 
     But the suggestion in this second error does work and allows me to build!
 
-*   PEP517 build of a dependency failed (see most_recent_build_output.txt )
+*   error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1 (see most_recent_build_output.txt )
  
 
 
