@@ -1,4 +1,16 @@
 import subprocess
+import sys
+
+if sys.prefix != sys.base_prefix:
+    print("Running inside a virtual environment")
+else:
+    print("Not inside a virtual environment")
+    with open("dependency_check.log", "w") as log_file:
+        log_file.write("Not running inside a virtual environment)\n")
+    # throw an error if not running inside a virtual environment
+    sys.exit(1)
+
+
 
 commands = [
     "git --version",
